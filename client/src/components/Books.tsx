@@ -297,21 +297,21 @@ export default function Books() {
       </div>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto sm:max-h-[80vh]">
           {selectedBook && (
             <>
               <DialogHeader>
-                <DialogTitle className="font-serif text-3xl">
+                <DialogTitle className="font-serif text-2xl sm:text-3xl">
                   {selectedBook.title}
                 </DialogTitle>
-                <DialogDescription className="text-lg">
+                <DialogDescription className="text-base sm:text-lg">
                   {selectedBook.subtitle}
                 </DialogDescription>
               </DialogHeader>
 
               <div className="space-y-6 mt-4">
-                <div className="flex gap-4">
-                  <div className="w-48 flex-shrink-0">
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="w-full sm:w-48 flex-shrink-0">
                     <img
                       src={selectedBook.image}
                       alt={selectedBook.title}
