@@ -28,6 +28,7 @@ export default function About() {
                 <img
                   src={authorImage}
                   alt="Author portrait"
+                  loading="lazy"
                   className="w-full h-full object-cover"
                   data-testid="img-author-portrait"
                 />
