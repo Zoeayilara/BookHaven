@@ -38,7 +38,7 @@ export default function Navbar() {
             className="font-serif text-xl md:text-2xl font-bold text-foreground hover-elevate rounded-md px-2 -ml-2"
             data-testid="button-brand"
           >
-            Author Name
+            Francis Egbogun
           </button>
 
           <div className="hidden md:flex items-center gap-8">
@@ -75,7 +75,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <ThemeToggle />
             <Button
-              onClick={() => console.log("Get the book clicked")}
+              onClick={() => window.open("https://www.amazon.com/stores/Francis-Egbogun/author/B096XCCGLT?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true", "_blank")}
               data-testid="button-cta"
             >
               Get the Book
@@ -127,7 +127,7 @@ export default function Navbar() {
                 Contact
               </button>
               <Button
-                onClick={() => console.log("Get the book clicked")}
+                onClick={() => window.open("https://www.amazon.com/stores/Francis-Egbogun/author/B096XCCGLT?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true", "_blank")}
                 className="w-full"
                 data-testid="mobile-button-cta"
               >

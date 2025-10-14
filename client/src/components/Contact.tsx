@@ -4,20 +4,55 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Send } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
+  
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Contact form submitted:", { email, message });
-    setEmail("");
-    setMessage("");
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    // EmailJS credentials
+    const SERVICE_ID = "service_gk1ucp9";
+    const TEMPLATE_ID = "template_dhdq21k";
+    const PUBLIC_KEY = "EI8pFqGa0aEsqtGQG";
+
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      message: message,
+      to_name: "Francis Egbogun",
+    };
+
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        templateParams,
+        PUBLIC_KEY
+      );
+      
+      setSubmitStatus("success");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -43,6 +78,16 @@ export default function Contact() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <Input
+                type="text"
+                placeholder="Your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                data-testid="input-name"
+              />
+            </div>
+            <div>
+              <Input
                 type="email"
                 placeholder="Your email address"
                 value={email}
@@ -61,9 +106,28 @@ export default function Contact() {
                 data-testid="input-message"
               />
             </div>
-            <Button type="submit" size="lg" className="w-full" data-testid="button-send">
+            
+            {submitStatus === "success" && (
+              <div className="p-4 bg-green-50 border border-green-200 rounded-md text-green-800">
+                Thank you! Your message has been sent successfully.
+              </div>
+            )}
+            
+            {submitStatus === "error" && (
+              <div className="p-4 bg-red-50 border border-red-200 rounded-md text-red-800">
+                Sorry, there was an error sending your message. Please try again.
+              </div>
+            )}
+            
+            <Button 
+              type="submit" 
+              size="lg" 
+              className="w-full" 
+              data-testid="button-send"
+              disabled={isSubmitting}
+            >
               <Send className="w-4 h-4 mr-2" />
-              Send Message
+              {isSubmitting ? "Sending..." : "Send Message"}
             </Button>
           </form>
         </div>

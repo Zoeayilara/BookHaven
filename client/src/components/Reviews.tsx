@@ -5,23 +5,23 @@ import { Star } from "lucide-react";
 const reviews = [
   {
     id: 1,
-    text: "A masterpiece of storytelling. The characters felt so real, I couldn't put it down.",
-    author: "Sarah Mitchell",
-    book: "Echoes of Eternity",
+    text: "This book opened my eyes to the prophetic realm. The teachings on dream interpretation have transformed my spiritual life and helped me understand God's messages.",
+    author: "Pastor David Okonkwo",
+    book: "What Is Prophecy",
     rating: 5,
   },
   {
     id: 2,
-    text: "Beautifully written with profound insights into the human condition. A must-read.",
-    author: "James Cooper",
-    book: "Shadows and Light",
+    text: "A powerful guide for every believer facing life's challenges. The biblical strategies in this book helped me overcome battles I thought were impossible to win.",
+    author: "Sister Grace Adeyemi",
+    book: "Overcoming The Battles Of Life",
     rating: 5,
   },
   {
     id: 3,
-    text: "An enchanting blend of mystery and romance that kept me guessing until the end.",
-    author: "Emma Thompson",
-    book: "The Garden of Whispers",
+    text: "Eye-opening revelation about spiritual kingdoms! This book equipped me with knowledge to identify and contend with dark forces. A must-read for spiritual warfare.",
+    author: "Evangelist Michael Eze",
+    book: "Identifying The Kingdoms That Be",
     rating: 5,
   },
 ];

@@ -43,13 +43,13 @@ export default function Hero() {
       >
         <div className="max-w-3xl">
           <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6" data-testid="text-hero-title">
-            Stories That{" "}
-            <span className="text-primary">Transcend Time</span>
+            Breaking Free From{" "}
+            <span className="text-primary">Spiritual Bondage</span>
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed" data-testid="text-hero-subtitle">
-            Immerse yourself in captivating narratives that explore the depths of human
-            experience. Award-winning author crafting tales that resonate across
-            generations.
+            Discover transformative biblical teachings that unlock spiritual freedom and 
+            divine understanding. Books that illuminate God's truth and empower believers 
+            to overcome life's battles and walk in victory.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button
