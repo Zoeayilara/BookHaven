@@ -43,13 +43,13 @@ export default function Media() {
   });
 
   useEffect(() => {
-    // Fetch media data from API
-    fetch("/api/media")
+    // Fetch media data from JSON file
+    fetch("/media-content.json")
       .then((res) => res.json())
       .then((data) => setMediaData(data))
       .catch((error) => {
         console.error("Error loading media:", error);
-        // Fallback to empty arrays if API fails
+        // Fallback to empty arrays if file doesn't exist
       });
   }, []);
 

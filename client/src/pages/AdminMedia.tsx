@@ -47,8 +47,8 @@ export default function AdminMedia() {
   const ADMIN_PASSWORD = "pastor2024";
 
   useEffect(() => {
-    // Load existing media data from API
-    fetch("/api/media")
+    // Load existing media data from JSON file
+    fetch("/media-content.json")
       .then((res) => res.json())
       .then((data) => setMediaData(data))
       .catch(() => {
@@ -158,46 +158,20 @@ export default function AdminMedia() {
     });
   };
 
-  const saveChanges = async () => {
-    try {
-      const response = await fetch("/api/media", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(mediaData),
-      });
+  const saveChanges = () => {
+    // Download JSON file
+    const dataStr = JSON.stringify(mediaData, null, 2);
+    const dataBlob = new Blob([dataStr], { type: "application/json" });
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "media-content.json";
+    link.click();
 
-      if (response.ok) {
-        toast({
-          title: "Success",
-          description: "Media saved! Changes are now live on the website.",
-        });
-      } else {
-        throw new Error("Failed to save");
-      }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to save media data",
-        variant: "destructive",
-      });
-    }
-  };
-
-  const uploadFile = async (file: File): Promise<string> => {
-    const formData = new FormData();
-    formData.append("file", file);
-
-    const response = await fetch("/api/upload", {
-      method: "POST",
-      body: formData,
+    toast({
+      title: "Success",
+      description: "File downloaded! Send this to your developer to update the website.",
     });
-
-    if (!response.ok) {
-      throw new Error("Upload failed");
-    }
-
-    const data = await response.json();
-    return data.url;
   };
 
   if (!isAuthenticated) {
@@ -229,7 +203,7 @@ export default function AdminMedia() {
           <h1 className="text-4xl font-bold">Media Management</h1>
           <Button onClick={saveChanges} className="gap-2">
             <Save className="w-4 h-4" />
-            Save Changes
+            Download & Save
           </Button>
         </div>
 
@@ -291,26 +265,11 @@ export default function AdminMedia() {
                     value={audio.title}
                     onChange={(e) => updateAudio(audio.id, "title", e.target.value)}
                   />
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Upload Audio File</label>
-                    <Input
-                      type="file"
-                      accept="audio/*"
-                      onChange={async (e) => {
-                        const file = e.target.files?.[0];
-                        if (file) {
-                          try {
-                            const url = await uploadFile(file);
-                            updateAudio(audio.id, "url", url);
-                            toast({ title: "Success", description: "Audio uploaded!" });
-                          } catch (error) {
-                            toast({ title: "Error", description: "Upload failed", variant: "destructive" });
-                          }
-                        }
-                      }}
-                    />
-                    {audio.url && <p className="text-sm text-muted-foreground mt-1">File: {audio.url}</p>}
-                  </div>
+                  <Input
+                    placeholder="Audio URL (Google Drive, Dropbox, SoundCloud, etc.)"
+                    value={audio.url}
+                    onChange={(e) => updateAudio(audio.id, "url", e.target.value)}
+                  />
                   <Input
                     placeholder="Duration (e.g., 30:00)"
                     value={audio.duration}
@@ -343,25 +302,11 @@ export default function AdminMedia() {
                     value={image.title}
                     onChange={(e) => updateImage(image.id, "title", e.target.value)}
                   />
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Upload Image</label>
-                    <Input
-                      type="file"
-                      accept="image/*"
-                      onChange={async (e) => {
-                        const file = e.target.files?.[0];
-                        if (file) {
-                          try {
-                            const url = await uploadFile(file);
-                            updateImage(image.id, "url", url);
-                            toast({ title: "Success", description: "Image uploaded!" });
-                          } catch (error) {
-                            toast({ title: "Error", description: "Upload failed", variant: "destructive" });
-                          }
-                        }
-                      }}
-                    />
-                  </div>
+                  <Input
+                    placeholder="Image URL (Imgur, Google Photos, etc.)"
+                    value={image.url}
+                    onChange={(e) => updateImage(image.id, "url", e.target.value)}
+                  />
                   {image.url && (
                     <img
                       src={image.url}
