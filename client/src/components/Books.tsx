@@ -23,7 +23,7 @@ import img20210516wa0000 from "@assets/IMG-20210516-WA0000.jpg";
 
 const books = [
   {
-    id: 1,
+    id: 1, 
     title: "What Is Prophecy",
     subtitle: "Walking in God's Prophetic Will",
     genre: "Prophecy & Spiritual Growth",

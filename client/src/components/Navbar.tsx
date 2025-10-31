@@ -38,7 +38,7 @@ export default function Navbar() {
             className="font-serif text-xl md:text-2xl font-bold text-foreground hover-elevate rounded-md px-2 -ml-2"
             data-testid="button-brand"
           >
-            Francis Egbogun
+            Francis Egbogun Book Store
           </button>
 
           <div className="hidden md:flex items-center gap-8">
@@ -55,6 +55,13 @@ export default function Navbar() {
               data-testid="link-books"
             >
               Books
+            </button>
+            <button
+              onClick={() => scrollToSection("media")}
+              className="text-sm font-medium uppercase tracking-wide text-muted-foreground hover:text-foreground transition-colors"
+              data-testid="link-media"
+            >
+              Media
             </button>
             <button
               onClick={() => scrollToSection("reviews")}
@@ -111,6 +118,13 @@ export default function Navbar() {
                 data-testid="mobile-link-books"
               >
                 Books
+              </button>
+              <button
+                onClick={() => scrollToSection("media")}
+                className="block w-full text-left text-sm font-medium uppercase tracking-wide text-muted-foreground hover:text-foreground transition-colors py-2"
+                data-testid="mobile-link-media"
+              >
+                Media
               </button>
               <button
                 onClick={() => scrollToSection("reviews")}

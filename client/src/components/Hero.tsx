@@ -47,9 +47,7 @@ export default function Hero() {
             <span className="text-primary">Spiritual Bondage</span>
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed" data-testid="text-hero-subtitle">
-            Discover transformative biblical teachings that unlock spiritual freedom and 
-            divine understanding. Books that illuminate God's truth and empower believers 
-            to overcome life's battles and walk in victory.
+            Discover transformative biblical teachings that unlock spiritual freedom and divine understanding—books that illuminate God's truth and empower believers to overcome life's battles and walk in victory.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button
