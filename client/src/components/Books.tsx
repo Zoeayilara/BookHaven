@@ -20,6 +20,7 @@ import book5 from "@assets/BOOK5.jpg";
 import backCover1 from "@assets/BACK_COVER1.jpg";
 import img20210516 from "@assets/IMG-20210516-WA0002.jpg";
 import img20210516wa0000 from "@assets/IMG-20210516-WA0000.jpg";
+import revFrancisBook from "@assets/REV_FRANCIS_BOOK1.jpg";
 
 const books = [
   {
@@ -227,6 +228,29 @@ const books = [
     isbn: "978-978-942-879-3",
     purchaseLinks: [
       { name: "Amazon", url: "https://a.co/d/iW76xZs" },
+      { name: "Contact Author", url: "#contact" }
+    ]
+  },
+  {
+    id: 10,
+    title: "Discovering The Evil Part In Your Lineage",
+    subtitle: "Breaking Generational Curses",
+    genre: "Prophecy & Spiritual Growth",
+    image: revFrancisBook,
+    description: "This book is directed to unveil the evil pattern in your lineage. Discover how to confront and break the challenges that have been transferred through generations.",
+    fullDescription: "This book is directed to unveil the evil pattern in your lineage. Everyone has an evil pattern that is prevalent in his/her family. Anything that is a challenge in your family which you fail to confront, or wish away, or does not believe in its existence would ultimately be transferred to your children and to the rest of your generation. If our fathers had fought the evil nature or trend in our lineage, there wouldn't have been any battle to fight again in our lineage.",
+    topics: [
+      "Identifying Evil Patterns",
+      "Generational Curses",
+      "Family Challenges",
+      "Breaking Lineage Battles",
+      "Spiritual Warfare",
+      "Confronting Family Issues"
+    ],
+    publicationYear: "",
+    isbn: "",
+    purchaseLinks: [
+      { name: "Amazon", url: "https://www.amazon.com/dp/B0BF5XVLDX" },
       { name: "Contact Author", url: "#contact" }
     ]
   },
