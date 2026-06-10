@@ -1,0 +1,86 @@
+{
+  "videos": [
+    {
+      "id": 1762249368842,
+      "title": "HOW TO BE A PARTAKER OF THE LIFE OF GOD",
+      "youtubeId": "oOfzZ0Ajz8E",
+      "duration": "3:07"
+    },
+    {
+      "id": 1762249454716,
+      "title": "THE FAITHFULNESS OF GOD | DIVINE OPPORTUNITY",
+      "youtubeId": "8pFAsm5l7Vc",
+      "duration": "1:21"
+    },
+    {
+      "id": 1762249534917,
+      "title": "THE HIGH WAYS OF GOD",
+      "youtubeId": "PxB8zifbqKA",
+      "duration": "1:27"
+    },
+    {
+      "id": 1762249758119,
+      "title": "THE DANGER OF COVETOUSNESS ",
+      "youtubeId": "2n2s2NG6zFM",
+      "duration": "1:17"
+    },
+    {
+      "id": 1762249965944,
+      "title": "HOW TO APPEAR RIGHTEOUS BEFORE GOD",
+      "youtubeId": "lwNXbkJe89o",
+      "duration": "1:42"
+    },
+    {
+      "id": 1762250216788,
+      "title": "JESUS CHRIST, THE AUTHOR OF SALVATION",
+      "youtubeId": "pFMrSbTWVic",
+      "duration": "1:07"
+    }
+  ],
+  "audios": [
+    {
+      "id": 1,
+      "title": "Your Dreams and Your Destiny - Episode 1",
+      "url": "https://example.com/audio1.mp3",
+      "duration": "30:00"
+    },
+    {
+      "id": 2,
+      "title": "Understanding Kingdom Principles",
+      "url": "https://example.com/audio2.mp3",
+      "duration": "25:15"
+    }
+  ],
+  "images": [
+    {
+      "id": 1764728980438,
+      "title": "image 2",
+      "url": "https://drive.google.com/file/d/1gh-OqsccW0LSNhkGN1dGsaUyAV7NMmsy/view?usp=sharing",
+      "displayUrl": "https://lh3.googleusercontent.com/d/1gh-OqsccW0LSNhkGN1dGsaUyAV7NMmsy=s800"
+    },
+    {
+      "id": 1764729003514,
+      "title": "image 3",
+      "url": "https://drive.google.com/file/d/1WmkNFCxY-R3v5aGjYAiHssk62ZhEcPiP/view?usp=sharing",
+      "displayUrl": "https://lh3.googleusercontent.com/d/1WmkNFCxY-R3v5aGjYAiHssk62ZhEcPiP=s800"
+    },
+    {
+      "id": 1764729030263,
+      "title": "image 4",
+      "url": "https://drive.google.com/file/d/14RuvObSmsT-NV1AOIZCzHClvGOlxCnRF/view?usp=sharing",
+      "displayUrl": "https://lh3.googleusercontent.com/d/14RuvObSmsT-NV1AOIZCzHClvGOlxCnRF=s800"
+    },
+    {
+      "id": 1765188536750,
+      "title": "image 5",
+      "url": "https://drive.google.com/file/d/1wsrEJp6QzyZKlFAZVEfjgwDGnCZ9cw2S/view?usp=sharing",
+      "displayUrl": "https://lh3.googleusercontent.com/d/1wsrEJp6QzyZKlFAZVEfjgwDGnCZ9cw2S=s800"
+    },
+    {
+      "id": 1765188687134,
+      "title": "image 6",
+      "url": "https://drive.google.com/file/d/1XX0-fbU5Y2PSZkihHa_TutBwYBhuOdYG/view?usp=sharing",
+      "displayUrl": "https://lh3.googleusercontent.com/d/1XX0-fbU5Y2PSZkihHa_TutBwYBhuOdYG=s800"
+    }
+  ]
+}
