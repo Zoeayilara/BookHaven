@@ -21,6 +21,7 @@ import backCover1 from "@assets/BACK_COVER1.jpg";
 import img20210516 from "@assets/IMG-20210516-WA0002.jpg";
 import img20210516wa0000 from "@assets/IMG-20210516-WA0000.jpg";
 import revFrancisBook from "@assets/REV_FRANCIS_BOOK1.jpg";
+import questKnowledge from "@assets/QUEST_KNOWLEDGE.jpg";
 
 const books = [
   {
@@ -260,6 +261,28 @@ const books = [
     purchaseLinks: [
       { name: "Amazon", url: "https://www.amazon.com/dp/B0BF5XVLDX" },
       { name: "Selar", url: "https://selar.com/t4vzs9178n" },
+      { name: "Contact Author", url: "#contact" }
+    ]
+  },
+  {
+    id: 11,
+    title: "The Quest For Knowledge And Understanding",
+    subtitle: "Three Major Keys To Success In Life",
+    genre: "Prosperity & Kingdom",
+    image: questKnowledge,
+    description: "This book reveals three major keys necessary for success in life: Knowledge, Understanding, and Faith. Knowledge is light while ignorance is darkness.",
+    fullDescription: "The book reveals three major keys necessary for success in life: Knowledge, Understanding, and Faith. Knowledge is light while ignorance is darkness. Understanding makes you grasp the truth of what is available, and Faith takes delivery of the available. In this book you will learn how these three keys work together, so that what God has already made available to you does not remain out of reach through ignorance.",
+    topics: [
+      "Knowledge as Light Against Ignorance",
+      "Understanding the Truth of What Is Available",
+      "Faith That Takes Delivery",
+      "Three Keys to Success in Life",
+      "Growing in Revelational Knowledge"
+    ],
+    publicationYear: "",
+    isbn: "978-978-936-979-9",
+    purchaseLinks: [
+      { name: "Selar", url: "https://selar.com/95626v112h" },
       { name: "Contact Author", url: "#contact" }
     ]
   },

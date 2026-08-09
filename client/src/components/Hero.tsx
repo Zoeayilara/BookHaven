@@ -1,7 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import heroImage from "@assets/generated_images/Cozy_reading_scene_hero_6b21ad8b.png";
+import heroImage from "@assets/generated_images/Cozy_reading_scene_hero.jpg";
 
 export default function Hero() {
   const { ref, inView } = useInView({
