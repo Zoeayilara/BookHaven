@@ -23,7 +23,22 @@ import img20210516wa0000 from "@assets/IMG-20210516-WA0000.jpg";
 import revFrancisBook from "@assets/REV_FRANCIS_BOOK1.jpg";
 import questKnowledge from "@assets/QUEST_KNOWLEDGE.jpg";
 
-const books = [
+type Book = {
+  id: number;
+  title: string;
+  subtitle: string;
+  genre: string;
+  image: string;
+  description: string;
+  fullDescription: string;
+  keyPoints?: string[];
+  topics: string[];
+  publicationYear: string;
+  isbn: string;
+  purchaseLinks: { name: string; url: string }[];
+};
+
+const books: Book[] = [
   {
     id: 1, 
     title: "What Is Prophecy",
@@ -270,14 +285,17 @@ const books = [
     subtitle: "Three Major Keys To Success In Life",
     genre: "Prosperity & Kingdom",
     image: questKnowledge,
-    description: "This book reveals three major keys necessary for success in life: Knowledge, Understanding, and Faith. Knowledge is light while ignorance is darkness.",
-    fullDescription: "The book reveals three major keys necessary for success in life: Knowledge, Understanding, and Faith. Knowledge is light while ignorance is darkness. Understanding makes you grasp the truth of what is available, and Faith takes delivery of the available. In this book you will learn how these three keys work together, so that what God has already made available to you does not remain out of reach through ignorance.",
+    description: "This book reveals three major keys necessary for success in life: Knowledge, Understanding, and Faith.",
+    fullDescription: "The book reveals three major keys necessary for success in life: Knowledge, Understanding, and Faith.",
+    keyPoints: [
+      "Knowledge is light while ignorance is darkness",
+      "Understanding makes you grasp the truth of what is available",
+      "Faith takes delivery of the available"
+    ],
     topics: [
-      "Knowledge as Light Against Ignorance",
-      "Understanding the Truth of What Is Available",
-      "Faith That Takes Delivery",
-      "Three Keys to Success in Life",
-      "Growing in Revelational Knowledge"
+      "Knowledge",
+      "Understanding",
+      "Faith"
     ],
     publicationYear: "",
     isbn: "978-978-936-979-9",
@@ -398,6 +416,13 @@ export default function Books() {
                   <p className="text-foreground leading-relaxed">
                     {selectedBook.fullDescription || selectedBook.description}
                   </p>
+                  {selectedBook.keyPoints && selectedBook.keyPoints.length > 0 && (
+                    <ul className="list-disc list-outside pl-5 space-y-1 mt-3 text-foreground leading-relaxed">
+                      {selectedBook.keyPoints.map((point, index) => (
+                        <li key={index}>{point}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
 
                 {selectedBook.topics && selectedBook.topics.length > 0 && (
