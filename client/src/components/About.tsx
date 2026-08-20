@@ -1,11 +1,12 @@
 import { useInView } from "react-intersection-observer";
 import { Quote } from "lucide-react";
 import authorImage from "@assets/EBGOGUN4857.jpg";
+import ResponsiveImage from "@/lib/responsiveImage";
 
 export default function About() {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0,
   });
 
   return (
@@ -25,10 +26,13 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
             <div className="relative">
               <div className="aspect-[3/4] rounded-md overflow-hidden shadow-xl">
-                <img
-                  src={authorImage}
+                <ResponsiveImage
+                  base="EBGOGUN4857"
+                  fallback={authorImage}
+                  sizes="(min-width: 768px) 24rem, calc(100vw - 2rem)"
                   alt="Author portrait"
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                   data-testid="img-author-portrait"
                 />

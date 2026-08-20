@@ -29,7 +29,7 @@ const reviews = [
 export default function Reviews() {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0,
   });
 
   return (
@@ -50,7 +50,7 @@ export default function Reviews() {
             {reviews.map((review, index) => {
               const { ref: reviewRef, inView: reviewInView } = useInView({
                 triggerOnce: true,
-                threshold: 0.1,
+                threshold: 0,
               });
 
               return (

@@ -60,7 +60,7 @@ const convertGooglePhotosUrl = (url: string): string => {
 export default function Media() {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0,
   });
 
   const [mediaData, setMediaData] = useState<MediaData>({
@@ -139,8 +139,20 @@ export default function Media() {
                     <div className="relative aspect-video overflow-hidden bg-muted">
                       <img
                         src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`}
+                        srcSet={`https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg 320w, https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg 1280w`}
+                        sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, calc(100vw - 2rem)"
                         alt={video.title}
                         loading="lazy"
+                        decoding="async"
+                        onError={(e) => {
+                          // maxresdefault is missing for plenty of uploads; hq720 always exists.
+                          const target = e.currentTarget;
+                          const fallback = `https://img.youtube.com/vi/${video.youtubeId}/hq720.jpg`;
+                          if (target.src !== fallback) {
+                            target.srcset = "";
+                            target.src = fallback;
+                          }
+                        }}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">

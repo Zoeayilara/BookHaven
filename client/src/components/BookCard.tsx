@@ -2,6 +2,7 @@ import { useInView } from "react-intersection-observer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import ResponsiveImage from "@/lib/responsiveImage";
 
 interface BookCardProps {
   book: {
@@ -10,6 +11,7 @@ interface BookCardProps {
     subtitle: string;
     genre: string;
     image: string;
+    imageBase: string;
     description: string;
   };
   index: number;
@@ -19,7 +21,7 @@ interface BookCardProps {
 export default function BookCard({ book, index, onLearnMore }: BookCardProps) {
   const { ref: bookRef, inView: bookInView } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0,
   });
 
   return (
@@ -32,10 +34,13 @@ export default function BookCard({ book, index, onLearnMore }: BookCardProps) {
     >
       <Card className="group overflow-hidden hover-elevate active-elevate-2 transition-all duration-300 hover:-translate-y-2 h-full" data-testid={`card-book-${book.id}`}>
         <div className="aspect-[3/4] overflow-hidden bg-muted">
-          <img
-            src={book.image}
+          <ResponsiveImage
+            base={book.imageBase}
+            fallback={book.image}
+            sizes="(min-width: 1024px) 22rem, (min-width: 640px) 45vw, calc(100vw - 2rem)"
             alt={book.title}
             loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             data-testid={`img-book-cover-${book.id}`}
           />

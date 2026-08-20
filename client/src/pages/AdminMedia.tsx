@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Plus, Trash2, Save } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Toaster } from "@/components/ui/toaster";
 
 interface Video {
   id: number;
@@ -33,7 +34,7 @@ interface MediaData {
   images: Image[];
 }
 
-export default function AdminMedia() {
+function AdminMedia() {
   const [mediaData, setMediaData] = useState<MediaData>({
     videos: [],
     audios: [],
@@ -329,5 +330,16 @@ export default function AdminMedia() {
         </Tabs>
       </div>
     </div>
+  );
+}
+
+// The Toaster lives here rather than in App so @radix-ui/react-toast stays out
+// of the chunk every visitor to the public site downloads.
+export default function AdminMediaPage() {
+  return (
+    <>
+      <AdminMedia />
+      <Toaster />
+    </>
   );
 }

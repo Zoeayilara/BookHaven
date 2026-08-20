@@ -213,6 +213,18 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }
+
+  /* The navbar is fixed, so jumping to a section would otherwise tuck its
+     heading underneath it. Offset the anchor by the navbar's height. */
+  section[id] {
+    scroll-margin-top: theme(spacing.16);
+  }
+
+  @screen md {
+    section[id] {
+      scroll-margin-top: theme(spacing.20);
+    }
+  }
 }
 
 /**

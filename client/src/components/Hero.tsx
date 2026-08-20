@@ -1,14 +1,9 @@
-import { useInView } from "react-intersection-observer";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+import ResponsiveImage from "@/lib/responsiveImage";
 import heroImage from "@assets/generated_images/Cozy_reading_scene_hero.jpg";
 
 export default function Hero() {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   const scrollToBooks = () => {
     const element = document.getElementById("books");
     if (element) {
@@ -28,21 +23,28 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
+      <div className="absolute inset-0">
+        {/* The LCP image: a real <img> rather than a CSS background so the
+            preload scanner can start it immediately and pick a phone-sized
+            AVIF/WebP instead of the full-width JPEG. */}
+        <ResponsiveImage
+          base="Cozy_reading_scene_hero"
+          fallback={heroImage}
+          sizes="100vw"
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          decoding="async"
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-background/40" />
       </div>
 
-      <div
-        ref={ref}
-        className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 transition-all duration-1000 ${
-          inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        }`}
-      >
+      {/* Above the fold, so it renders on first paint rather than waiting for
+          an IntersectionObserver callback after hydration. */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="max-w-3xl">
-          <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6" data-testid="text-hero-title">
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6" data-testid="text-hero-title">
             Breaking Free From{" "}
             <span className="text-primary">Spiritual Bondage</span>
           </h1>
@@ -72,6 +74,7 @@ export default function Hero() {
 
       <button
         onClick={scrollToAbout}
+        aria-label="Scroll to About section"
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-foreground transition-all animate-bounce"
         data-testid="button-scroll-indicator"
       >
